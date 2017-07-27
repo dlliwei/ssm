@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soecode.lyf.dto.AppointExecution;
@@ -57,7 +58,7 @@ public class BookController {
 	@ResponseBody
 	private Result<AppointExecution> appoint(@PathVariable("bookId") Long bookId, @RequestParam("studentId") Long studentId) {
 		if (studentId == null || studentId.equals("")) {
-			return new Result<>(false, "学号不能为空");
+			return new Result<AppointExecution>(false, "学号不能为空");
 		}
 		AppointExecution execution = null;
 		try {
